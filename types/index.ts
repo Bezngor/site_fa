@@ -9,9 +9,16 @@ export interface Metric {
   unit: string;
 }
 
+export interface CaseDetail {
+  task: string;
+  solution: string;
+  result: string;
+}
+
 export interface Case {
   title: string;
   description: string;
+  details: CaseDetail;
   image: string;
   metrics: Metric[];
 }
@@ -22,10 +29,8 @@ export interface HowWeWorkStep {
   description: string;
 }
 
-export interface Product {
+export interface ProductCategory {
   name: string;
-  description: string;
-  image: string;
 }
 
 export interface HeroTexts {

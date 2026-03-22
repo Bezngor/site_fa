@@ -1,0 +1,58 @@
+{
+  "checklist": [
+    {
+      "id": "test_files_exist",
+      "label": "Test files present",
+      "passed": false,
+      "detail": "No test files found"
+    },
+    {
+      "id": "spec_exists",
+      "label": "Specification filled",
+      "passed": true,
+      "detail": "2913 chars"
+    },
+    {
+      "id": "stages_complete",
+      "label": "All stages implemented",
+      "passed": true,
+      "detail": "4/4 stages"
+    }
+  ],
+  "task_commands": [
+    {
+      "name": "name:",
+      "command": "name: Lint секций",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Проверка типов",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Билд и экспорт",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Проверка bundle size (initial JS)",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    }
+  ],
+  "passed": false,
+  "timestamp": "2026-03-22T19:56:53.027220"
+}

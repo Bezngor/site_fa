@@ -14,4 +14,17 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Стили для плавного раскрытия аккордеона */
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+  }
+
+  .accordion-content.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
 }

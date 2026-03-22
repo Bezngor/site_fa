@@ -1,0 +1,8 @@
+- command: 'name: Lint секций'
+  name: 'name:'
+- command: 'name: Проверка типов'
+  name: 'name:'
+- command: 'name: Билд и экспорт'
+  name: 'name:'
+- command: 'name: Проверка bundle size (initial JS)'
+  name: 'name:'
