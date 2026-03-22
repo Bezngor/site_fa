@@ -1,0 +1,10 @@
+- command: npx eslint "lib/data/texts.ts" "types/index.ts" "components/sections/ProblemsSection.tsx"
+    "components/sections/index.ts" "app/page.tsx"
+  name: Линтинг новых файлов
+- command: npx tsc --noEmit
+  name: Проверка типов
+- command: npm run build
+  name: Сборка проекта
+- command: npx tailwindcss -i ./app/globals.css -o ./out/_next/static/css/test.css
+    --minify
+  name: Проверка стилей Tailwind
