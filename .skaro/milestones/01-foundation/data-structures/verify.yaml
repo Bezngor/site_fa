@@ -1,0 +1,8 @@
+- command: 'name: Проверка типов'
+  name: 'name:'
+- command: 'name: Линтинг новых файлов'
+  name: 'name:'
+- command: 'name: Проверка форматирования'
+  name: 'name:'
+- command: 'name: Проверка существования файлов'
+  name: 'name:'
