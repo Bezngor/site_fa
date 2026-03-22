@@ -1,7 +1,10 @@
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      <section id="hero" className="min-h-screen flex items-center justify-center">
+      <section
+        id="hero"
+        className="min-h-screen flex items-center justify-center"
+      >
         <h1>Главный экран</h1>
       </section>
       <section id="problems" className="min-h-screen bg-gray-light">

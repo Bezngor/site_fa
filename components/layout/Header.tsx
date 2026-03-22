@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { navLinks } from '@/lib/data/navigation';
@@ -13,7 +14,10 @@ export default function Header() {
     }
   }, [isMenuOpen]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     setIsMenuOpen(false);
     const element = document.querySelector(href);
@@ -25,7 +29,11 @@ export default function Header() {
   return (
     <header className="fixed top-0 w-full z-50 bg-[#1B2A4A] h-20 flex items-center px-6">
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold" onClick={(e) => handleNavClick(e, '#')}>
+        <Link
+          href="/"
+          className="text-2xl font-bold"
+          onClick={(e) => handleNavClick(e, '#')}
+        >
           <span className="text-white">F</span>
           <span className="text-[#F59E0B]">!</span>
         </Link>

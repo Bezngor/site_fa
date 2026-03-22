@@ -1,17 +1,13 @@
-import nextPlugin from '@next/eslint-plugin-next';
-import tseslint from 'typescript-eslint';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
-export default tseslint.config(
-  {
-    ignores: ['.next/', 'out/', '.skaro/', 'node_modules/'],
-  },
-  {
-    plugins: {
-      '@next/next': nextPlugin,
-    },
-    rules: {
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs['core-web-vitals'].rules,
-    },
-  }
-);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({ baseDirectory: __dirname });
+
+export default [
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  { ignores: ['.next/', 'out/', '.skaro/', 'node_modules/'] },
+];

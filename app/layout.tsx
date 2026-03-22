@@ -1,10 +1,10 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Header } from "@/components/layout/Header";
+import './globals.css';
+import type { Metadata } from 'next';
+import Header from '@/components/layout/Header';
 
 export const metadata: Metadata = {
-  title: "FactoryAll | Консалтинговое агентство",
-  description: "Профессиональные консалтинговые услуги для вашего бизнеса.",
+  title: 'FactoryAll | Консалтинговое агентство',
+  description: 'Профессиональные консалтинговые услуги для вашего бизнеса.',
 };
 
 export default function RootLayout({
