@@ -2,7 +2,7 @@ import { texts } from '@/lib/data/texts';
 
 export default function ProblemsSection() {
   return (
-    <section className="bg-white py-20 animate-fade-in">
+    <section className="animate-fade-in bg-white py-20">
       <div className="container-custom">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-[#1B2A4A] md:text-4xl">

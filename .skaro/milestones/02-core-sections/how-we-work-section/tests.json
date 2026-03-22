@@ -1,0 +1,66 @@
+{
+  "checklist": [
+    {
+      "id": "test_files_exist",
+      "label": "Test files present",
+      "passed": false,
+      "detail": "No test files found"
+    },
+    {
+      "id": "spec_exists",
+      "label": "Specification filled",
+      "passed": true,
+      "detail": "2212 chars"
+    },
+    {
+      "id": "stages_complete",
+      "label": "All stages implemented",
+      "passed": true,
+      "detail": "4/4 stages"
+    }
+  ],
+  "task_commands": [
+    {
+      "name": "name:",
+      "command": "name: Проверка типов",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "\"name:\" эх  ты хЄё  тэєЄЁхээхщ шыш тэх°эхщ\r\nъюьрэфющ, шёяюыэ хьющ яЁюуЁрььющ шыш яръхЄэ√ь Їрщыюь.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Линтинг секции",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Форматирование",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Проверка наличия файлов и данных",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Билд проекта (проверка интеграции)",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    }
+  ],
+  "passed": false,
+  "timestamp": "2026-03-22T18:24:56.295685"
+}
