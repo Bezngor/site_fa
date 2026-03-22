@@ -10,11 +10,10 @@ const config: Config = {
       colors: {
         primary: '#1B2A4A',
         accent: '#F59E0B',
-        white: '#FFFFFF',
       },
       fontFamily: {
-        sans: ['var(--font-inter)'],
-        heading: ['var(--font-montserrat)'],
+        sans: ['var(--font-inter)', 'sans-serif'],
+        heading: ['var(--font-montserrat)', 'sans-serif'],
       },
     },
   },

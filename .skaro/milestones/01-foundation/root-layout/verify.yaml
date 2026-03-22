@@ -1,0 +1,10 @@
+- command: npx tsc --noEmit
+  name: Проверка типов
+- command: npx eslint "app/layout.tsx" "components/layout/"
+  name: Линтинг
+- command: npx prettier --check "app/layout.tsx" "components/layout/"
+  name: Форматирование
+- command: npm run build
+  name: Билд проекта
+- command: Get-Content app/globals.css | Select-String "font-inter|font-montserrat"
+  name: Проверка globals.css

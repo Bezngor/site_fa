@@ -3,9 +3,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    @apply font-sans;
   }
   body {
-    @apply text-primary bg-white font-sans antialiased;
+    @apply text-[#1B2A4A] bg-white antialiased min-h-screen flex flex-col;
   }
   h1,
   h2,
@@ -14,5 +15,11 @@
   h5,
   h6 {
     @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
