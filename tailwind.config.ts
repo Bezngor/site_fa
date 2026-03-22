@@ -8,10 +8,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: '#1B2A4A',
-        amber: '#F59E0B',
+        primary: '#1B2A4A',
+        accent: '#F59E0B',
         white: '#FFFFFF',
-        'gray-light': '#F8F9FA',
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        heading: ['var(--font-montserrat)'],
       },
     },
   },

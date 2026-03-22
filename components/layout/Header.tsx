@@ -27,8 +27,8 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#1B2A4A] h-20 flex items-center px-6">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="fixed top-0 z-50 flex h-20 w-full items-center bg-[#1B2A4A] px-6">
+      <div className="container mx-auto flex items-center justify-between">
         <Link
           href="/"
           className="text-2xl font-bold"
@@ -38,16 +38,16 @@ export default function Header() {
           <span className="text-[#F59E0B]">!</span>
         </Link>
 
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-white hover:text-[#F59E0B] transition-colors relative group"
+              className="group relative text-white transition-colors hover:text-[#F59E0B]"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F59E0B] transition-all group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#F59E0B] transition-all group-hover:w-full" />
             </a>
           ))}
         </nav>
