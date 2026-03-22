@@ -1,0 +1,74 @@
+{
+  "checklist": [
+    {
+      "id": "test_files_exist",
+      "label": "Test files present",
+      "passed": false,
+      "detail": "No test files found"
+    },
+    {
+      "id": "spec_exists",
+      "label": "Specification filled",
+      "passed": true,
+      "detail": "2549 chars"
+    },
+    {
+      "id": "stages_complete",
+      "label": "All stages implemented",
+      "passed": true,
+      "detail": "4/4 stages"
+    }
+  ],
+  "task_commands": [
+    {
+      "name": "name:",
+      "command": "name: Проверка наличия всех секций",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Проверка ID в page.tsx",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Проверка ссылок в Header.tsx",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Проверка smooth scroll в CSS",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Билд проекта",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    },
+    {
+      "name": "name:",
+      "command": "name: Проверка out/index.html на ID",
+      "success": false,
+      "exit_code": 1,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": "'name:' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+    }
+  ],
+  "passed": false,
+  "timestamp": "2026-03-22T18:50:20.882651"
+}
