@@ -1,0 +1,13 @@
+- command: npm install
+  name: Установка зависимостей
+- command: npx eslint . --ext .ts,.tsx --quiet
+  name: Проверка линтинга
+- command: npx tsc --noEmit
+  name: Проверка типов
+- command: npx prettier --check .
+  name: Форматирование
+- command: npm run build
+  name: Билд и экспорт
+- command: Get-ChildItem -Recurse app/,components/,lib/ | Select-Object FullName |
+    Format-Table
+  name: Проверка структуры файлов

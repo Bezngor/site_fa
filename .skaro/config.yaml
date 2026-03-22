@@ -1,0 +1,40 @@
+import:
+  max_file_size: 100000
+  token_limit: 200000
+lang: ru
+llm:
+  api_key_env: OPENROUTER_API_KEY
+  base_url: null
+  max_tokens: 16384
+  model: google/gemini-3-flash-preview
+  provider: openrouter
+  temperature: 0.3
+project_description: ''
+project_name: site_factoryall
+roles:
+  architect:
+    api_key_env: OPENROUTER_API_KEY
+    base_url: null
+    max_tokens: null
+    model: x-ai/grok-4.1-fast
+    provider: openrouter
+    temperature: null
+  coder:
+    api_key_env: OPENROUTER_API_KEY
+    base_url: null
+    max_tokens: null
+    model: google/gemini-3.1-flash-lite-preview
+    provider: openrouter
+    temperature: null
+  reviewer:
+    api_key_env: OPENROUTER_API_KEY
+    base_url: null
+    max_tokens: null
+    model: google/gemini-3-flash-preview
+    provider: openrouter
+    temperature: null
+skills:
+  preset: nextjs
+theme: dark
+ui:
+  auto_open_browser: true
