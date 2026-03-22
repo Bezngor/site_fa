@@ -1,0 +1,8 @@
+- command: 'name: Lint UI-компонентов'
+  name: 'name:'
+- command: 'name: Проверка типов'
+  name: 'name:'
+- command: 'name: Сборка проекта'
+  name: 'name:'
+- command: 'name: Проверка форматирования'
+  name: 'name:'
