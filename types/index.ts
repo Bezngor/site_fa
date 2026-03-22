@@ -38,6 +38,12 @@ export interface SectionTexts {
   description?: string;
 }
 
+export interface CtaTexts {
+  title: string;
+  description: string;
+  buttonText: string;
+}
+
 export interface TextsData {
   hero: HeroTexts;
   problems: SectionTexts & { list: string[] };
@@ -54,9 +60,5 @@ export interface TextsData {
   };
   results: SectionTexts & { list: string[] };
   about: SectionTexts;
-  cta: {
-    title: string;
-    description: string;
-    buttonText: string;
-  };
+  cta: CtaTexts;
 }

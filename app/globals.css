@@ -1,20 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply font-sans;
   }
+
   body {
-    @apply text-[#1B2A4A] bg-white antialiased min-h-screen flex flex-col;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading;
+    @apply bg-white text-[#1B2A4A] antialiased min-h-screen flex flex-col;
   }
 }
 

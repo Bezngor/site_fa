@@ -1,4 +1,4 @@
-import { TextsData } from '../../types/index';
+import { TextsData } from '@/types';
 
 export const texts: TextsData = {
   hero: {
@@ -72,4 +72,4 @@ export const texts: TextsData = {
       'Оставьте заявку — проведём бесплатный экспресс-аудит и покажем, что можно улучшить уже сейчас.',
     buttonText: 'Получить аудит бесплатно',
   },
-} as const;
+};
