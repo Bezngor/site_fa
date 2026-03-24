@@ -1,8 +1,3 @@
-/**
- * Типизация данных для проекта site_factoryall.
- * Определяет структуру контента для всех секций лендинга.
- */
-
 export interface Metric {
   label: string;
   value: string;
@@ -16,6 +11,7 @@ export interface CaseDetail {
 }
 
 export interface Case {
+  id?: number;
   title: string;
   description: string;
   details: CaseDetail;
@@ -29,8 +25,17 @@ export interface HowWeWorkStep {
   description: string;
 }
 
-export interface ProductCategory {
+export interface Product {
+  id: string;
   name: string;
+  features: string[];
+  icon: string;
+  ctaLabel: string;
+}
+
+export interface NavLink {
+  href: string;
+  label: string;
 }
 
 export interface HeroTexts {
@@ -66,4 +71,8 @@ export interface TextsData {
   results: SectionTexts & { list: string[] };
   about: SectionTexts;
   cta: CtaTexts;
+  productLine: {
+    title: string;
+    subtitle: string;
+  };
 }

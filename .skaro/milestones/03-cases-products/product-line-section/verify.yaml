@@ -1,0 +1,12 @@
+- command: npx tsc --noEmit
+  name: Проверка типов TypeScript
+- command: npx eslint components/sections/ProductLineSection.tsx components/sections/ProductCard.tsx
+    lib/data/products.ts
+  name: Линтинг секции продуктов
+- command: npx prettier --check components/sections/ProductLineSection.tsx components/sections/ProductCard.tsx
+    lib/data/products.ts
+  name: Форматирование кода
+- command: npm run build
+  name: Билд проекта (SSG)
+- command: Select-String -Path "out/index.html" -Pattern "product-line" -Quiet
+  name: Проверка наличия секции в HTML

@@ -1,20 +1,27 @@
-import { productCategories } from '@/lib/data/products';
+import { products } from '@/lib/data/products';
 import { texts } from '@/lib/data/texts';
+import ProductCard from './ProductCard';
 
-export default function ProductLineSection() {
+const ProductLineSection = () => {
+  const { title, subtitle } = texts.productLine;
+
   return (
-    <section id="products" className="py-20 bg-white">
+    <section id="products" className="bg-gray-50/70 py-16 sm:py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-[#1B2A4A] mb-8 text-center">{texts.products.title}</h2>
-        <ul className="max-w-2xl mx-auto space-y-4">
-          {productCategories.map((category, index) => (
-            <li key={index} className="flex items-center text-lg text-[#1B2A4A]">
-              <span className="w-2 h-2 bg-[#F59E0B] rounded-full mr-3" />
-              {category.name}
-            </li>
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+            {title}
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-gray-600">{subtitle}</p>
+        </div>
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default ProductLineSection;

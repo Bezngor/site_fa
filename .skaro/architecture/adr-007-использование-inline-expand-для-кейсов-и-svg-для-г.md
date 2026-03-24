@@ -1,6 +1,6 @@
 # ADR-002: Оптимизация UX и производительности
 
-**Status:** proposed
+**Status:** accepted
 **Date:** 2023-10-24
 
 ## Context

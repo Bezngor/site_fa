@@ -28,13 +28,13 @@
       "id": "all_tasks_tests_confirmed",
       "label": "All task tests confirmed",
       "passed": false,
-      "detail": "6/20 tasks"
+      "detail": "10/20 tasks"
     },
     {
       "id": "all_tasks_implemented",
       "label": "All tasks fully implemented",
       "passed": false,
-      "detail": "6/20 tasks"
+      "detail": "10/20 tasks"
     },
     {
       "id": "milestones_have_tasks",
@@ -45,5 +45,5 @@
   ],
   "global_commands": [],
   "passed": false,
-  "timestamp": "2026-03-22T14:34:38.101166"
+  "timestamp": "2026-03-23T07:56:41.228744"
 }
