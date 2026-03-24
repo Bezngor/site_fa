@@ -33,6 +33,15 @@ export interface HowWeWorkArtifacts {
 /** Имя иконки Lucide для колонки «Результаты» (как у карточек продуктовой линейки). */
 export type ResultsColumnIcon = 'Search' | 'Settings2' | 'TrendingUp';
 
+/** Имя иконки Lucide для карточек «О нас» (тот же стиль ключей, что у ResultsColumn). */
+export type AboutFeatureIcon = 'Settings2' | 'Layers' | 'LineChart' | 'Headphones';
+
+export interface AboutFeature {
+  icon: AboutFeatureIcon;
+  title: string;
+  text: string;
+}
+
 export interface ResultsColumn {
   heading: string;
   points: string[];
@@ -112,7 +121,7 @@ export interface TextsData {
     title: string;
   };
   results: SectionTexts & { intro: string; columns: ResultsColumn[] };
-  about: SectionTexts;
+  about: SectionTexts & { features: AboutFeature[]; ctaText: string };
   cta: CtaTexts;
   productLine: {
     title: string;

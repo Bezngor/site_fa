@@ -1,0 +1,14 @@
+- command: npx tsc --noEmit
+  name: TypeScript компиляция
+- command: npx eslint components/sections/AboutSection.tsx lib/data/texts.ts app/page.tsx
+  name: ESLint проверка
+- command: npx prettier --check components/sections/AboutSection.tsx lib/data/texts.ts
+  name: Prettier форматирование
+- command: npm run build
+  name: Сборка проекта
+- command: 'if (Test-Path components/sections/AboutSection.tsx) { Write-Host "✓ AboutSection.tsx
+    exists" } else { Write-Host "✗ AboutSection.tsx missing"; exit 1 };
+
+    if (Test-Path AI_NOTES.md) { Write-Host "✓ AI_NOTES.md exists" } else { Write-Host
+    "✗ AI_NOTES.md missing"; exit 1 }'
+  name: Проверка наличия файлов
