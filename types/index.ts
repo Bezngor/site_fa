@@ -30,9 +30,13 @@ export interface HowWeWorkArtifacts {
   body: string;
 }
 
+/** Имя иконки Lucide для колонки «Результаты» (как у карточек продуктовой линейки). */
+export type ResultsColumnIcon = 'Search' | 'Settings2' | 'TrendingUp';
+
 export interface ResultsColumn {
   heading: string;
   points: string[];
+  icon?: ResultsColumnIcon;
 }
 
 export interface Product {

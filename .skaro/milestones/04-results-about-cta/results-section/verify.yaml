@@ -1,0 +1,8 @@
+- command: npx tsc --noEmit
+  name: TypeScript type check
+- command: npx eslint components/sections/ResultsSection.tsx lib/data/texts.ts types/index.ts
+  name: ESLint check
+- command: npm run build
+  name: Build static export
+- command: Test-Path out/index.html
+  name: Verify output files exist
