@@ -1,0 +1,5 @@
+# Базовый URL продакшена: при смене домена обновите директиву Sitemap (и при необходимости public/sitemap.xml), затем пересоберите статику.
+User-agent: *
+Allow: /
+
+Sitemap: https://factoryall.ru/sitemap.xml

@@ -16,10 +16,47 @@ const montserrat = Montserrat({
   display: 'swap',
 });
 
+const siteTitle =
+  'FactoryAll — MES и цифровой контур операционного управления производством';
+const siteDescription =
+  'Внедряем MES и единый цифровой контур: планирование, исполнение заказов, прозрачность цеха и учёт сырья. ИИ — для аналитики и развития системы там, где уже есть надёжные данные. Проекты внедрения — обычно 3–6 месяцев.';
+
+/** Продакшен-домен для canonical и абсолютных URL в метаданных; синхронизируйте с public/robots.txt и public/sitemap.xml при смене хоста. */
+const siteUrl = 'https://factoryall.ru';
+
 export const metadata: Metadata = {
-  title: 'FactoryAll — Цифровое управление производством с ИИ',
-  description:
-    'Помогаем предприятиям перейти от ручного управления к умным системам планирования и контроля производства. Результат за 3–6 месяцев.',
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
+  keywords: [
+    'FactoryAll',
+    'MES',
+    'цифровой контур производства',
+    'операционное управление производством',
+    'планирование производства',
+    'учёт на производстве',
+    'MES внедрение',
+    'цифровизация цеха',
+  ],
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    type: 'website',
+    locale: 'ru_RU',
+    url: '/',
+    siteName: 'FactoryAll',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'FactoryAll — MES и цифровой контур производства',
+      },
+    ],
+  },
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({

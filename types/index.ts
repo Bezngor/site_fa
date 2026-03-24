@@ -25,6 +25,16 @@ export interface HowWeWorkStep {
   description: string;
 }
 
+export interface HowWeWorkArtifacts {
+  title: string;
+  body: string;
+}
+
+export interface ResultsColumn {
+  heading: string;
+  points: string[];
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -41,6 +51,9 @@ export interface NavLink {
 export interface HeroTexts {
   title: string;
   subtitle: string;
+  noteLead: string;
+  noteLink: string;
+  noteTrail: string;
 }
 
 export interface SectionTexts {
@@ -48,10 +61,35 @@ export interface SectionTexts {
   description?: string;
 }
 
+export interface CtaFormFields {
+  nameLabel: string;
+  namePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  phoneLabel: string;
+  phonePlaceholder: string;
+  messageLabel: string;
+  messagePlaceholder: string;
+  honeypotInputLabel: string;
+  successMessage: string;
+  successBackLabel: string;
+  submittingLabel: string;
+  errorMessage: string;
+  fallbackHint: string;
+  validation: {
+    nameMin: string;
+    emailInvalid: string;
+    phoneDigits: string;
+    messageMin: string;
+    honeypot: string;
+  };
+}
+
 export interface CtaTexts {
   title: string;
   description: string;
   buttonText: string;
+  form: CtaFormFields;
 }
 
 export interface TextsData {
@@ -60,6 +98,7 @@ export interface TextsData {
   howWeWork: {
     title: string;
     steps: HowWeWorkStep[];
+    artifacts: HowWeWorkArtifacts;
   };
   cases: {
     title: string;
@@ -68,7 +107,7 @@ export interface TextsData {
   products: {
     title: string;
   };
-  results: SectionTexts & { list: string[] };
+  results: SectionTexts & { intro: string; columns: ResultsColumn[] };
   about: SectionTexts;
   cta: CtaTexts;
   productLine: {
@@ -76,3 +115,18 @@ export interface TextsData {
     subtitle: string;
   };
 }
+
+/** Данные контактной формы после валидации (без honeypot). */
+export interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+/** Состояние отправки формы в UI. */
+export type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+
+export type FormspreeSubmitResult =
+  | { ok: true }
+  | { ok: false; reason: 'timeout' | 'network' | 'http' };

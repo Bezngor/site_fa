@@ -14,7 +14,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold transition-all duration-200';
+    'inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-semibold transition-all duration-200 disabled:cursor-not-allowed';
   const variants: Record<'primary' | 'secondary', string> = {
     primary: 'bg-accent text-primary hover:bg-amber-500',
     secondary:
@@ -30,8 +30,8 @@ export const Button: React.FC<ButtonProps> = ({
       aria-disabled={isDisabled}
       aria-busy={isLoading}
       className={`${baseStyles} ${variants[variant]} ${
-        isLoading ? 'cursor-not-allowed opacity-70' : ''
-      } ${className}`}
+        isLoading ? 'opacity-70' : ''
+      } ${isDisabled && !isLoading ? 'opacity-70' : ''} ${className}`}
     >
       {isLoading && (
         <svg

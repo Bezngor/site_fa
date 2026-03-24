@@ -1,0 +1,16 @@
+- command: npx tsc --noEmit
+  name: TypeScript компиляция
+- command: npx eslint components/sections/CtaFormSection.tsx lib/validation/ lib/utils/formspree.ts
+  name: ESLint проверка
+- command: npx prettier --check components/sections/CtaFormSection.tsx lib/validation/
+    lib/utils/
+  name: Prettier форматирование
+- command: npm run build
+  name: Production build
+- command: "npm run build; \nGet-ChildItem -Path out/_next/static/chunks -Recurse\
+    \ -Filter *.js | Measure-Object -Property Length -Sum | Select-Object @{Name='TotalSizeKB';Expression={[math]::Round($_.Sum/1KB,2)}}\n"
+  name: Проверка bundle size
+- command: "Test-Path public/robots.txt; \nTest-Path public/sitemap.xml\n"
+  name: Проверка наличия SEO файлов
+- command: Select-String -Path app/layout.tsx -Pattern "metadata.*title|description|openGraph"
+  name: Проверка мета-тегов в layout

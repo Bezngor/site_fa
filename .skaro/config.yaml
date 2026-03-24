@@ -23,7 +23,7 @@ roles:
     api_key_env: OPENROUTER_API_KEY
     base_url: null
     max_tokens: null
-    model: google/gemini-2.5-pro
+    model: stepfun/step-3.5-flash:free
     provider: openrouter
     temperature: null
   reviewer:

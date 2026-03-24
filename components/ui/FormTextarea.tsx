@@ -1,21 +1,20 @@
-import { forwardRef, useId, type InputHTMLAttributes } from 'react';
+import { forwardRef, useId, type TextareaHTMLAttributes } from 'react';
 
-export type FormInputProps = {
+export type FormTextareaProps = {
   label: string;
   error?: string;
-  /** Явный id для текста ошибки (по умолчанию `${id ?? generated}-error`) */
   errorId?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
-  ({ label, error, errorId, id, className, disabled, ...props }, ref) => {
+export const FormTextarea = forwardRef<HTMLTextAreaElement, FormTextareaProps>(
+  ({ label, error, errorId, id, className, disabled, rows = 5, ...props }, ref) => {
     const fallbackId = useId();
-    const inputId = id ?? fallbackId;
-    const errId = errorId ?? `${inputId}-error`;
+    const textareaId = id ?? fallbackId;
+    const errId = errorId ?? `${textareaId}-error`;
     const hasError = Boolean(error);
 
     const controlClass = [
-      'w-full rounded-md border bg-white px-4 py-2.5 text-gray-900 shadow-sm',
+      'w-full resize-y rounded-md border bg-white px-4 py-2.5 text-gray-900 shadow-sm',
       'placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 disabled:opacity-60',
       hasError
         ? 'border-red-500 focus:border-red-500 focus:ring-red-500/30'
@@ -27,13 +26,14 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 
     return (
       <div>
-        <label htmlFor={inputId} className="mb-1.5 block text-sm font-medium text-primary">
+        <label htmlFor={textareaId} className="mb-1.5 block text-sm font-medium text-primary">
           {label}
         </label>
-        <input
+        <textarea
           {...props}
-          id={inputId}
+          id={textareaId}
           ref={ref}
+          rows={rows}
           disabled={disabled}
           aria-invalid={hasError}
           aria-describedby={hasError ? errId : undefined}
@@ -49,4 +49,4 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
   },
 );
 
-FormInput.displayName = 'FormInput';
+FormTextarea.displayName = 'FormTextarea';
