@@ -1,0 +1,17 @@
+# Проверки seo-metadata. Запуск из корня репозитория (site_fa).
+
+- name: Проверка типов TypeScript
+  command: npx tsc --noEmit
+
+- name: ESLint (только существующие файлы SEO-зоны)
+  command: npx eslint app/layout.tsx --max-warnings 0
+
+- name: Prettier (только существующие файлы SEO-зоны)
+  command: npx prettier --check app/layout.tsx
+
+- name: Сборка проекта
+  command: npm run build
+
+# Наличие public/robots.txt, sitemap.xml, og.png — кроссплатформенно (Node), без PowerShell.
+- name: Наличие public/robots.txt, sitemap.xml, og.png
+  command: node -e "const fs=require('fs'); const paths=['public/robots.txt','public/sitemap.xml','public/og.png']; for (const p of paths){ if(!fs.existsSync(p)){ console.error('Missing:', p); process.exit(1);} } console.log('OK:', paths.length, 'files');"

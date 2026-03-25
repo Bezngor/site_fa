@@ -21,13 +21,25 @@ const siteTitle =
 const siteDescription =
   'Внедряем MES и единый цифровой контур: планирование, исполнение заказов, прозрачность цеха и учёт сырья. ИИ — для аналитики и развития системы там, где уже есть надёжные данные. Проекты внедрения — обычно 3–6 месяцев.';
 
-/** Продакшен-домен для canonical и абсолютных URL в метаданных; синхронизируйте с public/robots.txt и public/sitemap.xml при смене хоста. */
-const siteUrl = 'https://factoryall.ru';
+/** Fallback, если не задан NEXT_PUBLIC_SITE_URL; синхронизируйте с public/robots.txt и public/sitemap.xml при смене хоста. */
+const siteUrlFallback = 'https://factoryall.ru';
+const metadataBaseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || siteUrlFallback;
+
+const ogImage = {
+  url: '/og.png',
+  width: 1200,
+  height: 630,
+  alt: 'FactoryAll — MES и цифровой контур производства',
+} as const;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(metadataBaseUrl),
   title: siteTitle,
   description: siteDescription,
+  robots: { index: true, follow: true },
+  authors: [{ name: 'FactoryAll' }],
+  creator: 'FactoryAll',
   keywords: [
     'FactoryAll',
     'MES',
@@ -45,14 +57,13 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     url: '/',
     siteName: 'FactoryAll',
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'FactoryAll — MES и цифровой контур производства',
-      },
-    ],
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteTitle,
+    description: siteDescription,
+    images: [ogImage],
   },
   alternates: {
     canonical: '/',

@@ -1,0 +1,12 @@
+---
+description: Краткий контекст при работе с файлами Skaro (.skaro/)
+globs: .skaro/**
+alwaysApply: false
+---
+
+# Skaro: быстрый контекст
+
+- **[`.skaro/devplan.md`](.skaro/devplan.md)** — статусы задач и зависимости; перед сменой scope сверяй Change Log.
+- **Milestone:** `.skaro/milestones/**/<slug>/` — типично: `spec.md`, `plan.md`, `tasks.md`, `clarifications.md`, `verify.yaml`, иногда `AI_NOTES.md`. Текст может отставать от кода.
+- **Канон при расхождениях:** код репозитория + позиционирование (`.cursor/docs/`) + `.env.example`, не «эталон» из старого spec.
+- **Полный воркфлоу** (agent-blocks, журнал ревью, verify): правило **Skaro PM: milestone → agent-blocks** — подключается при работе с [`.cursor/plans/*-agent-blocks.plan.md`](.cursor/plans) или через **@Rules**; при необходимости явно упомяни его в запросе.

@@ -45,7 +45,7 @@ _Directory: `milestones/05-optimizations/`_
 |---|------|--------|--------------|-------------|
 | 1 | images-optimization | done | cta-form-section | Локальные WebP в public/images/, next/image для Hero и Cases; export через next build; images.unoptimized; ProductLine/About — Lucide без растровых карточек/фото. Детали: `.skaro/milestones/05-optimizations/images-optimization/AI_NOTES.md`. |
 | 2 | ui-components | done | project-setup | Общие UI: Button, FormInput в /components/ui/. |
-| 3 | seo-metadata | in-progress | images-optimization | Выполнено в layout и public/: metadataBase, title/description/keywords, OpenGraph (в т.ч. og.png), canonical; robots.txt, sitemap.xml. Schema.org и дальнейшее расширение — по необходимости после images-optimization. |
+| 3 | seo-metadata | done | images-optimization | layout + public: `metadataBase` из `NEXT_PUBLIC_SITE_URL` с fallback, title/description/keywords, Open Graph + Twitter (`summary_large_image`), robots meta, authors/creator, canonical; `public/robots.txt`, `sitemap.xml`, `og.png`; `AI_NOTES.md`, `verify.yaml`. Favicon/`metadata.icons` и schema.org — опционально позже. Детали: `.skaro/milestones/05-optimizations/seo-metadata/AI_NOTES.md`. |
 
 ## Тестирование и деплой
 _Directory: `milestones/06-testing-deployment/`_
@@ -66,6 +66,7 @@ _Directory: `milestones/06-testing-deployment/`_
 
 ## Change Log
 
+- 2026-03-25: Закрыт блок AG-SEO-03 (синхронизация milestone seo-metadata с кодом). `seo-metadata` → done. Обновлены `spec.md`, `plan.md`, `tasks.md`, `clarifications.md` под факт: env + fallback, OG/Twitter, статические robots/sitemap/og.png, без обязательного Stage 2 (валидатор/docs); журнал в `.cursor/plans/seo-metadata-agent-blocks.plan.md` §6.
 - 2026-03-25: Закрыт блок AG-IO-03 (документация и verify milestone images-optimization). `images-optimization` → done. Спецификация и план приведены к факту: локальные WebP, `npm run build` вместо несуществующего `npm run export`, исключения ProductLine (Lucide) и About (без фото), исправлен `verify.yaml`, добавлен `AI_NOTES.md`.
 - 2026-03-24: Закрыт блок AG-CF-05 (регрессия и документация). `cta-form-section` → done; `results-section`, `about-section` → done по фактической главной; `seo-metadata` → in-progress с уточнением: базовые meta/OG/robots/sitemap/og уже в репозитории, schema.org вне текущего объёма. Подробности в `.skaro/milestones/03-forms-and-final/cta-form-and-optimization/AI_NOTES.md`.
 - 2026-03-22 (обновление 3): Синхронизированы статусы на основе фактического прогресса. Задачи cases-section и product-line-section переведены в 'done' (progress=83%, все stages завершены). Все задачи из milestones 01-foundation, 02-core-sections и 03-cases-products теперь имеют статус 'done'. Остальные задачи (04-results-about-cta, 05-optimizations частично, 06-testing-deployment) остаются 'planned' с progress=16%.
