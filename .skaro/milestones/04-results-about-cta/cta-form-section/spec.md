@@ -1,27 +1,46 @@
 # Спецификация: cta-form-section
 
 ## Контекст
-Интерактивная форма с fallback на mailto:.
+Интерактивная форма обратной связи для лендинга, обеспечивающая сбор лидов с механизмом fallback (резервный вариант) на `mailto:`, если основной сервис недоступен или не настроен.
 
 ## User Scenarios
-1. **Посетитель: ** Заполняет форму (имя, email, сообщение), отправляет (success/error).
-2. **Без Formspree: ** Fallback mailto: открывается.
+1. **Посетитель (Успех):** Заполняет форму (имя, email, телефон, сообщение), нажимает «Отправить». После успешной отправки форма скрывается, отображается сообщение об успехе (текст из `texts.cta.form.successMessage`).
+2. **Посетитель (Ошибка/Таймаут):** При сбое Formspree или долгом ответе пользователь видит сообщение об ошибке и подсказку; открывается черновик письма через `mailto:` (или инструкция, если клиент почты не открылся).
+3. **Посетитель (Валидация):** Оставляет поля пустыми, вводит некорректный email, телефон с недостаточным числом цифр или заполняет honeypot. При отправке видит ошибки валидации.
 
 ## Functional Requirements
-- FR-01: Form с Zod schema (name, email, message).
-- FR-02: fetch на Formspree, timeout fallback mailto:.
-- FR-03: React Context для state (loading, error).
+- **FR-01: Валидация данных.** Zod-схема (`contactFormSchema`):
+    - `name`: обязательное, минимум 2 символа (после trim).
+    - `email`: валидный формат email (после trim).
+    - `phone`: не менее 10 цифр в строке.
+    - `message`: обязательное, минимум 10 символов (после trim).
+    - `_gotcha`: honeypot — должно оставаться пустым.
+- **FR-02: Интеграция с Formspree.** Идентификатор формы из `process.env.NEXT_PUBLIC_FORMSPREE_ID`; отправка через `fetch` POST на `https://formspree.io/f/{id}` (реализовано в `submitContactFormToFormspree`). Опционально: `NEXT_PUBLIC_CONTACT_EMAIL` для адреса в mailto-fallback (см. `.env.example`).
+- **FR-03: Обработка состояний.**
+    - Состояние загрузки во время запроса (`loading` / `isLoading` на кнопке).
+    - Успех: вместо формы — `SuccessMessage` с текстом из `texts.cta.form`.
+    - Ошибка: `ErrorMessage` с текстом из `texts.cta.form` и подсказкой (`fallbackHint`).
+- **FR-04: Fallback.** При ошибке HTTP/сети/таймауте или отсутствии `NEXT_PUBLIC_FORMSPREE_ID` — переход `mailto:` с темой и телом из данных формы; адрес: `NEXT_PUBLIC_CONTACT_EMAIL` или значение по умолчанию в коде.
+- **FR-05: Управление состоянием.** Локальный `useState` для значений полей. Статус отправки (`idle` / `loading` / `success` / `error`) — через React Context с провайдером внутри `CtaFormSection` (не глобальный контекст приложения).
 
 ## Non-Functional Requirements
-- NFR-01: 'use client' только здесь.
+- **NFR-01: Client-side Rendering.** Директива `'use client'` у компонента формы и связанной логики.
+- **NFR-02: UX валидации.** Валидация при отправке формы, не при каждом вводе.
+- **NFR-03: Безопасность.** На клиенте нет секретных ключей; публичные env — только ID формы и опционально контактный email.
 
-## Boundaries (what is NOT included)
-- Серверная валидация.
+## Boundaries (что НЕ входит)
+- Серверная валидация в Next.js (клиентская Zod + проверки Formspree).
+- Хранение истории заявок в браузере.
 
 ## Acceptance Criteria
-- [ ] Форма валидируется.
-- [ ] Mock fetch работает.
-- [ ] Все 8 секций в page.tsx.
+- [ ] Форма валидирует поля и honeypot при submit.
+- [ ] При успешном ответе Formspree форма заменяется на блок успеха с текстом из `texts.cta.form`.
+- [ ] При ошибке/таймауте/отсутствии ID показывается ошибка и срабатывает mailto-fallback (где применимо).
+- [ ] ID формы берётся из `process.env.NEXT_PUBLIC_FORMSPREE_ID`.
+- [ ] Все 8 секций лендинга импортированы и отображаются в `app/page.tsx`.
+- [ ] Стилизация на Tailwind CSS 4 в соответствии с палитрой проекта.
 
-## Open Questions
-- Formspree endpoint?
+## AI_NOTES
+- Реализация: контролируемые поля + `contactFormSchema.safeParse` на submit (без обязательного react-hook-form).
+- Таймаут `fetch`: `AbortController` (по умолчанию 12 с в `lib/utils/formspree.ts`).
+- Текст успеха: поле `successMessage` в `texts.cta.form` (`lib/data/texts.ts`).

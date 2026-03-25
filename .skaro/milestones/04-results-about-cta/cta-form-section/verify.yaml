@@ -1,0 +1,9 @@
+# Статический экспорт: в package.json нет скрипта "export" — шаг не включён.
+- command: npx tsc --noEmit
+  name: Проверка типов TypeScript
+- command: npx eslint components/sections/CtaFormSection.tsx lib/utils/formspree.ts lib/validation/contactFormSchema.ts
+  name: Линтинг кода
+- command: npx prettier --check components/sections/CtaFormSection.tsx lib/utils/formspree.ts lib/validation/contactFormSchema.ts
+  name: Форматирование кода
+- command: npm run build
+  name: Сборка проекта
