@@ -66,6 +66,8 @@ _Directory: `milestones/06-testing-deployment/`_
 
 ## Change Log
 
+- 2026-03-25: Confirmed 17 tasks: 01-foundation/project-setup, 01-foundation/data-structures, 01-foundation/root-layout, 02-core-sections/hero-section, 02-core-sections/problems-section, 02-core-sections/how-we-work-section, 02-core-sections/main-page-skeleton, 03-cases-products/cases-section, 03-cases-products/product-line-section, 04-results-about-cta/results-section, 04-results-about-cta/about-section, 04-results-about-cta/cta-form-section, 05-optimizations/images-optimization, 05-optimizations/ui-components, 05-optimizations/seo-metadata, 06-testing-deployment/playwright-tests, 06-testing-deployment/vercel-deploy-config
+
 - 2026-03-25: Закрыт milestone **vercel-deploy-config** (блоки AG-VC-01…04): `vercel.json`, README, `validate:vercel` / `check:out`, синхронизированы `spec.md`, `plan.md`, `tasks.md`, `verify.yaml`, добавлен `AI_NOTES.md`. Задача **vercel-deploy-config** → **done**; журнал: `.cursor/plans/vercel-deploy-config-agent-blocks.plan.md`.
 - 2026-03-25: Реализованы Playwright E2E smoke-тесты (`e2e/`, `playwright.config.ts`, скрипты `build:e2e` / `test:e2e`, CI workflow). Milestone `playwright-tests` и `verify.yaml` приведены к факту (якоря навигации, `npm run build`, линт `npx eslint e2e`). Задача **playwright-tests** → **done**; см. `AI_NOTES.md` в milestone.
 - 2026-03-25: Закрыт блок AG-SEO-03 (синхронизация milestone seo-metadata с кодом). `seo-metadata` → done. Обновлены `spec.md`, `plan.md`, `tasks.md`, `clarifications.md` под факт: env + fallback, OG/Twitter, статические robots/sitemap/og.png, без обязательного Stage 2 (валидатор/docs); журнал в `.cursor/plans/seo-metadata-agent-blocks.plan.md` §6.

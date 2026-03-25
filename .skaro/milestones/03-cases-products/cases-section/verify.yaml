@@ -1,0 +1,15 @@
+- command: npx tsc --noEmit
+  name: Проверка типов TypeScript
+- command: npx eslint components/sections/CaseCard.tsx components/sections/CaseDetails.tsx
+    components/sections/CasesSection.tsx --max-warnings 0
+  name: Линтинг компонентов секции кейсов
+- command: npx prettier --check "components/sections/Case*.tsx" "lib/data/cases.ts"
+  name: Проверка форматирования
+- command: npx playwright test e2e/cases-section.spec.ts
+  name: E2E тесты секции кейсов
+- command: npx playwright test e2e/sections.spec.ts
+  name: Smoke-тест всех секций (включая кейсы)
+- command: npm run build
+  name: Проверка статической сборки
+- command: node scripts/check-static-out.js
+  name: Валидация структуры out/ директории
