@@ -1,0 +1,66 @@
+{
+  "checklist": [
+    {
+      "id": "test_files_exist",
+      "label": "Test files present",
+      "passed": true,
+      "detail": "2 test file(s) found"
+    },
+    {
+      "id": "spec_exists",
+      "label": "Specification filled",
+      "passed": true,
+      "detail": "2613 chars"
+    },
+    {
+      "id": "stages_complete",
+      "label": "All stages implemented",
+      "passed": true,
+      "detail": "4/4 stages"
+    }
+  ],
+  "task_commands": [
+    {
+      "name": "Валидация vercel.json и next.config.js",
+      "command": "npm run validate:vercel",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n\n> site_factoryall@0.1.0 validate:vercel\n> node scripts/validate-vercel-config.js\n\nvalidate-vercel-config: OK\n",
+      "stderr": ""
+    },
+    {
+      "name": "Сборка статического сайта",
+      "command": "npm run build",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n\n> site_factoryall@0.1.0 build\n> next build\n\n  ▲ Next.js 15.0.0\n\n   Creating an optimized production build ...\n ✓ Compiled successfully\n   Skipping linting\n   Checking validity of types ...\n   Collecting page data ...\n   Generating static pages (0/4) ...\n   Generating static pages (1/4) \r\n   Generating static pages (2/4) \r\n   Generating static pages (3/4) \r\n ✓ Generating static pages (4/4)\n   Finalizing page optimization ...\n   Collecting build traces ...\n   Exporting (0/3) ...\n ✓ Exporting (3/3)\n\nRoute (app)                              Size     First Load JS\n┌ ○ /                                    24.9 kB         124 kB\n└ ○ /_not-found                          897 B           100 kB\n+ First Load JS shared by all            99.3 kB\n  ├ chunks/215-204c08af082ee9ac.js       44.8 kB\n  ├ chunks/4bd1b696-8fdfa9444425cf06.js  52.6 kB\n  └ other shared chunks (total)          1.91 kB\n\n\n○  (Static)  prerendered as static content\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "Проверка структуры out/",
+      "command": "npm run check:out",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n\n> site_factoryall@0.1.0 check:out\n> node scripts/check-static-out.js\n\ncheck-static-out: OK\n",
+      "stderr": ""
+    },
+    {
+      "name": "E2E smoke (секции и форма)",
+      "command": "npm run test:e2e",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n\n> site_factoryall@0.1.0 test:e2e\n> playwright test\n\n\nRunning 10 tests using 6 workers\n\n  ok  1 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #problems видна на странице (382ms)\n  ok  4 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #hero видна на странице (381ms)\n  ok  2 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #how-we-work видна на странице (486ms)\n  ok  6 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #cases видна на странице (412ms)\n  ok  7 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #products видна на странице (301ms)\n  ok  8 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #results видна на странице (291ms)\n  ok  3 [chromium] › e2e\\contact-form.spec.ts:10:7 › Контактная форма › пустая форма: клиентская валидация, без запроса к Formspree (789ms)\n  ok  9 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #about видна на странице (298ms)\n  ok  5 [chromium] › e2e\\contact-form.spec.ts:28:7 › Контактная форма › успешная отправка с моком Formspree (643ms)\n  ok 10 [chromium] › e2e\\sections.spec.ts:10:9 › Секции главной › секция #contact видна на странице (242ms)\n\n  10 passed (18.6s)\n",
+      "stderr": ""
+    },
+    {
+      "name": "Линт next.config.js и скриптов деплоя",
+      "command": "npx eslint next.config.js scripts/validate-vercel-config.js scripts/check-static-out.js",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "timestamp": "2026-03-25T14:05:18.757746"
+}

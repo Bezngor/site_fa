@@ -1,0 +1,10 @@
+- name: Валидация vercel.json и next.config.js
+  command: npm run validate:vercel
+- name: Сборка статического сайта
+  command: npm run build
+- name: Проверка структуры out/
+  command: npm run check:out
+- name: E2E smoke (секции и форма)
+  command: npm run test:e2e
+- name: Линт next.config.js и скриптов деплоя
+  command: npx eslint next.config.js scripts/validate-vercel-config.js scripts/check-static-out.js

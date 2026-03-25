@@ -24,6 +24,12 @@ export default [
     },
   },
   {
+    files: ['scripts/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
+  {
     ignores: ['.next', 'out', 'node_modules', '**/*.json'],
   },
 ];

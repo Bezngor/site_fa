@@ -1,6 +1,8 @@
+// Конфигурация Next.js для статического экспорта (SSG)
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },

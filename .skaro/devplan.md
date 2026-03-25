@@ -53,7 +53,7 @@ _Directory: `milestones/06-testing-deployment/`_
 | # | Task | Status | Dependencies | Description |
 |---|------|--------|--------------|-------------|
 | 1 | playwright-tests | done | seo-metadata | Playwright smoke-тесты: статика `out/`, 8 секций по якорям навигации, форма + мок Formspree. Детали: `.skaro/milestones/06-testing-deployment/playwright-tests/AI_NOTES.md`. |
-| 2 | vercel-deploy-config | planned | playwright-tests | Vercel настройки: vercel.json, Git integration (ADR-004). Настройка environment variables для Formspree ID. |
+| 2 | vercel-deploy-config | done | playwright-tests | `vercel.json` (cleanUrls, security headers), README «Деплой на Vercel», `trailingSlash`, скрипты `validate:vercel` / `check:out`, `verify.yaml`. Env в Dashboard по `.env.example`. Детали: `.skaro/milestones/06-testing-deployment/vercel-deploy-config/AI_NOTES.md`. |
 
 ---
 
@@ -66,6 +66,7 @@ _Directory: `milestones/06-testing-deployment/`_
 
 ## Change Log
 
+- 2026-03-25: Закрыт milestone **vercel-deploy-config** (блоки AG-VC-01…04): `vercel.json`, README, `validate:vercel` / `check:out`, синхронизированы `spec.md`, `plan.md`, `tasks.md`, `verify.yaml`, добавлен `AI_NOTES.md`. Задача **vercel-deploy-config** → **done**; журнал: `.cursor/plans/vercel-deploy-config-agent-blocks.plan.md`.
 - 2026-03-25: Реализованы Playwright E2E smoke-тесты (`e2e/`, `playwright.config.ts`, скрипты `build:e2e` / `test:e2e`, CI workflow). Milestone `playwright-tests` и `verify.yaml` приведены к факту (якоря навигации, `npm run build`, линт `npx eslint e2e`). Задача **playwright-tests** → **done**; см. `AI_NOTES.md` в milestone.
 - 2026-03-25: Закрыт блок AG-SEO-03 (синхронизация milestone seo-metadata с кодом). `seo-metadata` → done. Обновлены `spec.md`, `plan.md`, `tasks.md`, `clarifications.md` под факт: env + fallback, OG/Twitter, статические robots/sitemap/og.png, без обязательного Stage 2 (валидатор/docs); журнал в `.cursor/plans/seo-metadata-agent-blocks.plan.md` §6.
 - 2026-03-25: Закрыт блок AG-IO-03 (документация и verify milestone images-optimization). `images-optimization` → done. Спецификация и план приведены к факту: локальные WebP, `npm run build` вместо несуществующего `npm run export`, исключения ProductLine (Lucide) и About (без фото), исправлен `verify.yaml`, добавлен `AI_NOTES.md`.
