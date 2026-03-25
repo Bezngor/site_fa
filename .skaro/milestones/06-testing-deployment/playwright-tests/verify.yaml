@@ -1,0 +1,10 @@
+- name: Установка Playwright браузеров
+  command: npx playwright install --with-deps chromium
+- name: Сборка статического сайта
+  command: npm run build
+- name: Запуск E2E тестов (headless)
+  command: npm run test:e2e
+- name: Проверка TypeScript в тестах
+  command: npx tsc --noEmit -p e2e/tsconfig.json
+- name: Lint тестов
+  command: npx eslint e2e
