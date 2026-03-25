@@ -10,6 +10,10 @@ export const cases: Case[] = [
       result: "Рост эффективности на 20%, устранение 30% операционных потерь за 2 месяца."
     },
     image: "/images/cases/case1.webp",
+    imageWidth: 550,
+    imageHeight: 368,
+    imageAlt:
+      "Иллюстрация: производственная среда и контроль качества в косметическом цехе",
     metrics: [
       { label: "Рост эффективности", value: "20", unit: "%" },
       { label: "Срок внедрения", value: "2", unit: "мес" },
@@ -25,6 +29,10 @@ export const cases: Case[] = [
       result: "Сокращение незавершенного производства на 35%, точность планирования достигла 94%."
     },
     image: "/images/cases/case2.webp",
+    imageWidth: 550,
+    imageHeight: 404,
+    imageAlt:
+      "Иллюстрация: дискретное производство и обработка деталей на станках",
     metrics: [
       { label: "Сокращение НЗП", value: "35", unit: "%" },
       { label: "Точность плана", value: "94", unit: "%" }
@@ -39,6 +47,10 @@ export const cases: Case[] = [
       result: "Окупаемость проекта за 6 месяцев, экономия ресурсов эквивалентна 3 штатным единицам."
     },
     image: "/images/cases/case3.webp",
+    imageWidth: 1280,
+    imageHeight: 720,
+    imageAlt:
+      "Иллюстрация: конвейерная линия и отгрузка готовой продукции FMCG",
     metrics: [
       { label: "Окупаемость", value: "6", unit: "мес" },
       { label: "Экономия FTE", value: "3", unit: "чел" }

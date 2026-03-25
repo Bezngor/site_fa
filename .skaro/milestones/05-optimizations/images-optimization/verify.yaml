@@ -1,0 +1,22 @@
+# Проверки images-optimization.
+# Запуск из корня репозитория (site_fa).
+
+- name: Сборка статического сайта (next build + output export)
+  command: npm run build
+
+- name: Проверка TypeScript
+  command: npx tsc --noEmit
+
+- name: ESLint
+  command: npm run lint
+
+# Проверка наличия ожидаемых WebP в public/ (без require .ts).
+- name: Наличие растровых ассетов в public/images
+  command: node -e "const fs=require('fs'); const paths=['public/images/hero.webp','public/images/cases/case1.webp','public/images/cases/case2.webp','public/images/cases/case3.webp']; for (const p of paths){ if(!fs.existsSync(p)){ console.error('Missing:', p); process.exit(1);} } console.log('OK:', paths.length, 'files');"
+
+# Опционально: оценка суммарного размера JS-чанков после сборки.
+# Windows (PowerShell): раскомментируйте блок ниже и выполните вручную при необходимости.
+# Linux/macOS: вместо этого смотрите, например: du -sh out/_next/static/chunks
+#
+# - name: "(Опционально, Windows) Суммарный размер чанков в out/_next/static/chunks"
+#   command: powershell -NoProfile -Command "if (-not (Test-Path 'out/_next/static/chunks')) { Write-Error 'Сначала выполните npm run build'; exit 1 }; (Get-ChildItem -Path 'out/_next/static/chunks' -Recurse -File | Measure-Object -Property Length -Sum).Sum / 1MB | ForEach-Object { '{0:N2} MB' -f $_ }"

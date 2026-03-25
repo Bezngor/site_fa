@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { cases } from '../../lib/data/cases';
 
@@ -19,15 +20,29 @@ export default function CasesSection() {
           {cases.map((item, index) => (
             <div key={item.title} className="border border-[#1B2A4A]/20 rounded-lg overflow-hidden">
               <button
+                type="button"
                 onClick={() => toggleCase(index)}
-                className="w-full p-6 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors"
+                aria-expanded={openStates[index]}
+                className="flex w-full items-center justify-between bg-gray-50 p-6 transition-colors hover:bg-gray-100"
               >
                 <span className="font-semibold text-[#1B2A4A]">{item.title}</span>
-                <ChevronDown className={`transition-transform duration-300 ${openStates[index] ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`transition-transform duration-300 ${openStates[index] ? 'rotate-180' : ''}`} aria-hidden />
               </button>
               
               <div className={`accordion-content ${openStates[index] ? 'open' : ''}`}>
                 <div className="overflow-hidden px-6 pb-6">
+                  {openStates[index] ? (
+                    <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-md border border-[#1B2A4A]/15">
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt || item.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : null}
                   <p className="mb-4 text-gray-600">{item.description}</p>
                   <div className="space-y-3">
                     <div>

@@ -1,0 +1,58 @@
+{
+  "checklist": [
+    {
+      "id": "test_files_exist",
+      "label": "Test files present",
+      "passed": false,
+      "detail": "No test files found"
+    },
+    {
+      "id": "spec_exists",
+      "label": "Specification filled",
+      "passed": true,
+      "detail": "3308 chars"
+    },
+    {
+      "id": "stages_complete",
+      "label": "All stages implemented",
+      "passed": true,
+      "detail": "5/5 stages"
+    }
+  ],
+  "task_commands": [
+    {
+      "name": "Сборка статического сайта (next build + output export)",
+      "command": "npm run build",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n\n> site_factoryall@0.1.0 build\n> next build\n\n  ▲ Next.js 15.0.0\n\n   Creating an optimized production build ...\n ✓ Compiled successfully\n   Skipping linting\n   Checking validity of types ...\n   Collecting page data ...\n   Generating static pages (0/4) ...\n   Generating static pages (1/4) \r\n   Generating static pages (2/4) \r\n   Generating static pages (3/4) \r\n ✓ Generating static pages (4/4)\n   Finalizing page optimization ...\n   Collecting build traces ...\n   Exporting (0/3) ...\n ✓ Exporting (3/3)\n\nRoute (app)                              Size     First Load JS\n┌ ○ /                                    24.9 kB         124 kB\n└ ○ /_not-found                          897 B           100 kB\n+ First Load JS shared by all            99.3 kB\n  ├ chunks/215-782a66fc331abf54.js       44.7 kB\n  ├ chunks/4bd1b696-8fdfa9444425cf06.js  52.6 kB\n  └ other shared chunks (total)          1.91 kB\n\n\n○  (Static)  prerendered as static content\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "Проверка TypeScript",
+      "command": "npx tsc --noEmit",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n",
+      "stderr": ""
+    },
+    {
+      "name": "ESLint",
+      "command": "npm run lint",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\n\n> site_factoryall@0.1.0 lint\n> next lint\n\n✔ No ESLint warnings or errors\n",
+      "stderr": ""
+    },
+    {
+      "name": "Наличие растровых ассетов в public/images",
+      "command": "node -e \"const fs=require('fs'); const paths=['public/images/hero.webp','public/images/cases/case1.webp','public/images/cases/case2.webp','public/images/cases/case3.webp']; for (const p of paths){ if(!fs.existsSync(p)){ console.error('Missing:', p); process.exit(1);} } console.log('OK:', paths.length, 'files');\"",
+      "success": true,
+      "exit_code": 0,
+      "stdout": "╥хъє∙р  ъюфютр  ёЄЁрэшЎр: 1251\r\nOK: 4 files\n",
+      "stderr": ""
+    }
+  ],
+  "passed": false,
+  "timestamp": "2026-03-25T10:12:31.300173"
+}

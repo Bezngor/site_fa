@@ -15,7 +15,14 @@ export interface Case {
   title: string;
   description: string;
   details: CaseDetail;
+  /** Путь под `public/`, например `/images/cases/case1.webp`. */
   image: string;
+  /** Натуральная ширина файла — для `next/image` и снижения CLS. */
+  imageWidth: number;
+  /** Натуральная высота файла. */
+  imageHeight: number;
+  /** Описание для атрибута `alt` у изображения кейса. */
+  imageAlt: string;
   metrics: Metric[];
 }
 
@@ -67,6 +74,10 @@ export interface HeroTexts {
   noteLead: string;
   noteLink: string;
   noteTrail: string;
+  /** Путь к WebP в `public/` (LCP-фон hero). */
+  backgroundSrc: string;
+  /** Краткое описание фона для screen readers. */
+  backgroundAlt: string;
 }
 
 export interface SectionTexts {

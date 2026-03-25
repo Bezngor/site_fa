@@ -1,12 +1,29 @@
+import Image from 'next/image';
 import { texts } from '@/lib/data/texts';
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="py-20 bg-[#1B2A4A] text-white">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">{texts.hero.title}</h1>
-        <p className="text-xl mb-6 text-gray-300">{texts.hero.subtitle}</p>
-        <p className="mb-8 max-w-2xl mx-auto text-base text-gray-400">
+    <section
+      id="hero"
+      className="relative flex min-h-[min(70vh,40rem)] items-center overflow-hidden py-20 text-white"
+    >
+      <Image
+        src={texts.hero.backgroundSrc}
+        alt={texts.hero.backgroundAlt}
+        fill
+        priority
+        fetchPriority="high"
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      <div
+        className="absolute inset-0 z-[1] bg-[#1B2A4A]/88"
+        aria-hidden
+      />
+      <div className="container relative z-10 mx-auto px-4 text-center">
+        <h1 className="mb-6 text-4xl font-bold md:text-6xl">{texts.hero.title}</h1>
+        <p className="mb-6 text-xl text-gray-300">{texts.hero.subtitle}</p>
+        <p className="mx-auto mb-8 max-w-2xl text-base text-gray-400">
           {texts.hero.noteLead}
           <a
             href="#products"
@@ -18,7 +35,7 @@ export default function HeroSection() {
         </p>
         <a
           href="#contact"
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold transition-all duration-200 bg-accent text-primary hover:bg-amber-500"
+          className="inline-flex items-center justify-center gap-2 bg-accent px-6 py-3 font-semibold text-primary transition-all duration-200 hover:bg-amber-500"
         >
           {texts.cta.buttonText}
         </a>
