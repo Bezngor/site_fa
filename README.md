@@ -27,7 +27,7 @@ npm run build
 2. **Add New… → Project → Import** нужный репозиторий.
 3. **Framework Preset:** Next.js (или «Other», если пресет не подхватился).
 4. **Build Command:** `npm run build` (эквивалентно `next build`; отдельный `next export` не нужен).
-5. **Output Directory:** `out` — обязательно для статического экспорта.
+5. **Output Directory:** **не переопределять** (оставить пустым / по умолчанию). Для пресета Next.js Vercel сам подхватывает `output: 'export'` из `next.config.js`. Если вручную указать `out`, сборка часто падает с ошибкой «`routes-manifest.json` не найден» — см. [документацию Vercel](https://github.com/vercel/vercel/blob/main/errors/now-next-routes-manifest.md). Каталог `out/` по-прежнему создаётся локально после `npm run build` и нужен для `npx serve out`.
 6. **Environment Variables** — скопировать имена из [`.env.example`](.env.example), значения задать для **Production** и **Preview**:
    - `NEXT_PUBLIC_SITE_URL` — на проде канонический домен (например `https://factoryall.ru`); для **каждого Preview** удобнее выставить URL деплоя вида `https://<имя-проекта>-<hash>.vercel.app` (или ваш кастомный превью-домен), иначе в метаданных/OG могут остаться «чужие» абсолютные ссылки.
    - `NEXT_PUBLIC_FORMSPREE_ID` — ID формы Formspree (без полного URL).
@@ -51,7 +51,8 @@ npm run build
 
 | Симптом | Что проверить |
 |--------|----------------|
-| 404 на путях или «ломаются» URL | Каталог `out/` после `npm run build`; в настройках проекта Vercel указан **Output Directory `out`**; согласованность с `trailingSlash: true` и `cleanUrls` в `vercel.json`. |
+| `routes-manifest.json` не найден / Build Failed после экспорта | В Vercel **снять переопределение Output Directory** (не указывать `out`). См. [now-next-routes-manifest](https://github.com/vercel/vercel/blob/main/errors/now-next-routes-manifest.md). |
+| 404 на путях или «ломаются» URL (локально) | После `npm run build` раздавать полный каталог `out/`; согласованность `trailingSlash: true` и `cleanUrls` в `vercel.json`. |
 | Неверные абсолютные ссылки / OG на превью | Переменная `NEXT_PUBLIC_SITE_URL` для окружения **Preview** должна соответствовать URL этого деплоя. |
 | Форма не отправляется / ошибки в консоли | `NEXT_PUBLIC_FORMSPREE_ID`; в консоли браузера — сообщения CSP (при изменении `vercel.json` или сторонних скриптов). |
 
