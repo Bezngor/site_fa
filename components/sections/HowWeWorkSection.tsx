@@ -7,10 +7,7 @@ export default function HowWeWorkSection() {
         <h2 className="mb-16 text-center text-3xl font-bold text-[#1B2A4A] md:text-4xl">
           {texts.howWeWork.title}
         </h2>
-        <div className="relative mx-auto max-w-3xl">
-          {/* Вертикальная линия */}
-          <div className="absolute top-4 left-6 h-[calc(100%-2rem)] w-0.5 bg-[#1B2A4A]/20 md:left-1/2 md:-ml-0.5" />
-
+        <div className="mx-auto max-w-3xl">
           <div className="flex flex-col gap-12">
             {texts.howWeWork.steps.map((step) => (
               <div key={step.step} className="relative flex gap-6 md:gap-12">
@@ -29,7 +26,7 @@ export default function HowWeWorkSection() {
             ))}
           </div>
 
-          <div className="relative z-10 mx-auto mt-16 max-w-3xl border-t border-[#1B2A4A]/15 pt-10 text-center md:text-left">
+          <div className="mx-auto mt-16 max-w-3xl border-t border-[#1B2A4A]/15 pt-10 text-center md:text-left">
             <h3 className="text-lg font-bold text-[#1B2A4A]">
               {texts.howWeWork.artifacts.title}
             </h3>
